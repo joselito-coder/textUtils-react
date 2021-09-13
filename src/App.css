@@ -37,10 +37,11 @@
   }
 }
 
-.container{
-  color:red;
-}
 
 .text-center{
   text-align: center;
+}
+
+textarea{
+  resize: none;
 }
