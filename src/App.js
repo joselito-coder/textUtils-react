@@ -5,12 +5,12 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 
 
@@ -55,20 +55,20 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Navbar setButtonColor={setButtonColor} title="TextUtils" aboutText="about" toggleMode={toggleMode} mode={mode} />
-        <Alert alert={alert} />
+      {/* <Router> */}
+      <Navbar setButtonColor={setButtonColor} title="TextUtils" aboutText="about" toggleMode={toggleMode} mode={mode} />
+      <Alert alert={alert} />
 
-        <Switch>
-          <Route path="/about">
-            <AboutUs />
-          </Route>
+      {/* <Switch> */}
+      {/* <Route path="/about"> */}
+      {/* <AboutUs />
+          </Route> */}
 
-          <Route path="/">
-            <TextForm buttonColor={buttonColor} showAlert={showAlert} heading="Enter the text to be analyzed" mode={mode} />
-          </Route>
-        </Switch>
-      </Router>
+      {/* <Route path="/"> */}
+      <TextForm buttonColor={buttonColor} showAlert={showAlert} heading="Enter the text to be analyzed" mode={mode} />
+      {/* </Route> */}
+      {/* </Switch> */}
+      {/* </Router> */}
     </>
   );
 }
