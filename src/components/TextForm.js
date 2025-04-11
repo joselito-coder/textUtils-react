@@ -38,11 +38,34 @@ export default function TextForm(props) {
         // Encode the plaintext using window.btoa() function
         if (!text == "") {
             let encryptedText = btoa(text)
-            console.log("I am working")
+            
+            // console.log("I am working")
             // Update the text with the encrypted text
             setText(`Encrypted Text: ${encryptedText}`)
             props.showAlert("The text has been encrypted!", 'success');
         }
+    }
+
+    const handleDeClick = ()=>{
+        if (!text == "") {
+            setText(text.replaceAll("Encrypted Text:"," "))
+            setText(text.replace(/^\s+|\s+$/g, ''))
+            console.log(text)
+            let decryptedText ;
+            try{
+                decryptedText = atob(text.replaceAll("Encrypted Text:"," "))
+            }catch(e){
+                console.error(e);
+                props.showAlert("Invalid Cipher text entered", 'danger');
+                return;
+
+            }
+            // console.log("I am working")
+            // Update the text with the decrypted text
+            setText(`Decrypted Text: ${decryptedText}`)
+            props.showAlert("The text has been encrypted!", 'success');
+        }
+
     }
 
     const handleClClick = () => {
@@ -81,6 +104,7 @@ export default function TextForm(props) {
                     <button onClick={handleUpClick} className={`btn btn-${props.buttonColor} mx-1 my-2`}>Convert to Uppercase</button>
                     <button onClick={handleLoClick} className={`btn btn-${props.buttonColor} mx-1 my-2`}>Convert to Lowercase</button>
                     <button onClick={handleEnClick} className={`btn btn-${props.buttonColor} mx-1 my-2`}>Encrypt text</button>
+                    <button onClick={handleDeClick} className={`btn btn-${props.buttonColor} mx-1 my-2`}>Decrypt text</button>
                     <button onClick={handleClClick} className={`btn btn-${props.buttonColor} mx-1 my-2`}>Clear text</button>
                     <button onClick={handleCopy} className={`btn btn-${props.buttonColor} mx-1 my-2`}>Copy text</button>
                     <button onClick={handleExtraSpaces} className={`btn btn-${props.buttonColor} mx-1 my-2`}>Remove extra spaces</button>
